@@ -20,7 +20,7 @@ app.use(function (req, res, next) {
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-// ===== no need with React (!?)
+// ===== no need with React (!?) 
 // app.use(express.static(path.join(__dirname, 'dist')))
 // app.use(express.static(path.join(__dirname, 'node_modules')))
 

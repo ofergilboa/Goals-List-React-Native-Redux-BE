@@ -1,10 +1,11 @@
 var express = require('express')
 const router = express.Router()
 const Item = require('../models/Item')
+const Recording = require('../models/Recording')
 
 router.get('/items', function (req, res) {
     Item.find({}).exec(function (err, response) {
-        // console.log(`get - response - ${response}`)
+        console.log(`get - response - ${response}`)
         res.send(response)
     })
 })
@@ -21,6 +22,14 @@ router.delete('/item/:id', function (req, res) {
         console.log("Successful deletion");
     });
     res.send('item deleted')
+})
+
+
+router.post('/recording', async function (req, response) {
+    let recording = new Recording(req.body)
+    console.log(`post - response - ${recording}`)
+    await recording.save()
+    response.send('saved to db')
 })
 
 module.exports = router
